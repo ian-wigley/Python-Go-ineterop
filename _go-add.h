@@ -68,7 +68,8 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern __declspec(dllexport) GoInt add(GoInt value);
+extern __declspec(dllexport) GoInt add_test(GoInt value);
+extern __declspec(dllexport) char* string_test(char* text);
 
 #ifdef __cplusplus
 }

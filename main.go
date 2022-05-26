@@ -7,13 +7,19 @@ import (
 	"strconv"
 )
 
-//export add
-func add(value int) int {
+//export add_test
+func add_test(value int) int {
 	var stringValue string = strconv.Itoa(value)
 	print("\nAdding the value supplied from Python : ", stringValue)
 	print("\nTo 42 from go ... equals -> ")
 	return value + 42
 }
 
-func main() {
+//export string_test
+func string_test(text *C.char) *C.char {
+	var return_string string = "Hello from Go !!"
+	return_string += "\n" + C.GoString(text)
+	return C.CString(return_string)
 }
+
+func main() {}
