@@ -10,12 +10,12 @@ import (
 )
 
 var (
-	oldResult = 0
-	newResult = 0
-	startValue = 0
-	wasSequence = false
+	oldResult     = 0
+	newResult     = 0
+	startValue    = 0
+	wasSequence   = false
 	startingValue = false
-	george = ""
+	result        = ""
 )
 
 // Struct to hold each numeric value
@@ -27,10 +27,10 @@ type Node struct {
 
 func main() {}
 
-//export binary_tree
-func binary_tree(cArray *C.int, cSize C.int, i C.int) *C.char  {
+//export binaryTree
+func binaryTree(cArray *C.int, cSize C.int, i C.int) *C.char {
 
-    gSlice := (*[1 << 30]C.int)(unsafe.Pointer(cArray))[:cSize:cSize]
+	gSlice := (*[1 << 30]C.int)(unsafe.Pointer(cArray))[:cSize:cSize]
 
 	fmt.Print("The values passed from Python are : ")
 	var tree *Node = nil
@@ -44,7 +44,7 @@ func binary_tree(cArray *C.int, cSize C.int, i C.int) *C.char  {
 	getRanges(tree)
 	populateRangeEnd()
 
-	return C.CString(george)
+	return C.CString(result)
 }
 
 // Function to create a new Node
@@ -90,9 +90,9 @@ func getRanges(tree *Node) {
 			if wasSequence {
 				wasSequence = false
 				startingValue = false
-				george += strconv.Itoa(startValue) + "-" + strconv.Itoa(oldResult) + ","
+				result += strconv.Itoa(startValue) + "-" + strconv.Itoa(oldResult) + ","
 			} else {
-				george += strconv.Itoa(oldResult) + ","
+				result += strconv.Itoa(oldResult) + ","
 			}
 		}
 		// Start of a number sequence
@@ -120,16 +120,16 @@ func populateRangeStart(tree *Node) {
 
 func populateRangeEnd() {
 	if wasSequence {
-		george += strconv.Itoa(startValue) + "-" + strconv.Itoa(newResult)
+		result += strconv.Itoa(startValue) + "-" + strconv.Itoa(newResult)
 	} else {
-		george += strconv.Itoa(newResult)
+		result += strconv.Itoa(newResult)
 	}
 }
 
-func min(value_one int, value_two int) int {
-	if value_one < value_two {
-		return value_one
+func min(valueOne int, valueTwo int) int {
+	if valueOne < valueTwo {
+		return valueOne
 	} else {
-		return value_two
+		return valueTwo
 	}
 }
