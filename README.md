@@ -4,8 +4,8 @@ Small examples of Python interoperation with Go!
 <br>
 ## Example 1
 > Example of passing Integers and Strings between Python and Go!
-<br>
-<br>
+
+
 ## Example 2
 > Recursive binary tree example.
 > For more information about binary trees take a look at the following site: https://en.wikipedia.org/wiki/Binary_search_algorithm
