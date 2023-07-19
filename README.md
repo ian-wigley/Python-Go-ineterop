@@ -3,7 +3,7 @@ Small examples of Python interoperation with Go!
 <br>
 <br>
 ## Example 1
-Integers and String stuff
+> Example of passing Integers and Strings between Python and Go!
 <br>
 <br>
 ## Example 2
